@@ -1,0 +1,80 @@
+{
+  "name": "pwa-badge",
+  "version": "1.0.0",
+  "license": "MIT",
+  "description": "Badging for PWA app icons",
+  "repository": "github:ali-master/pwa-badge",
+  "bugs": "https://github.com/ali-master/pwa-badge/issues",
+  "homepage": "https://github.com/ali-master/pwa-badge",
+  "keywords": [
+    "pwa",
+    "badge",
+    "badge icon",
+    "pwa icon"
+  ],
+  "author": "Ali Torki <ali_4286@live.com>",
+  "main": "lib/index.js",
+  "module": "es/index.js",
+  "types": "src/index.d.ts",
+  "sideEffects": false,
+  "files": [
+    "lib",
+    "es",
+    "src",
+    "dist"
+  ],
+  "scripts": {
+    "clean": "rimraf lib dist es",
+    "prepare": "npm run clean && npm run lint && npm run test && npm run build",
+    "lint": "eslint src test && prettier --write ./src ./test",
+    "test": "cross-env BABEL_ENV=commonjs mocha --require @babel/register --reporter spec test/*.js",
+    "build": "npm run build:commonjs && npm run build:umd && npm run build:umd:min && npm run build:es",
+    "build:commonjs": "cross-env BABEL_ENV=commonjs babel src --out-dir lib",
+    "build:es": "cross-env BABEL_ENV=es babel src --out-dir es",
+    "build:umd": "cross-env BABEL_ENV=commonjs NODE_ENV=development npx webpack",
+    "build:umd:min": "cross-env BABEL_ENV=commonjs NODE_ENV=production npx webpack",
+    "watch": "cross-env BABEL_ENV=commonjs NODE_ENV=development npx webpack --watch --mode development"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "pre-push": "npm test"
+    }
+  },
+  "lint-staged": {
+    "*.{js,ts}": [
+      "eslint --fix",
+      "prettier --write",
+      "git add"
+    ],
+    "*.{json,md}": [
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.5.5",
+    "@babel/core": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "@babel/register": "^7.5.5",
+    "@typescript-eslint/eslint-plugin": "^2.0.0",
+    "@typescript-eslint/parser": "^2.0.0",
+    "babel-loader": "^8.0.6",
+    "chai": "^4.2.0",
+    "cross-env": "^5.2.0",
+    "eslint": "^6.2.2",
+    "eslint-config-airbnb": "18.0.1",
+    "eslint-config-prettier": "^6.1.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-prettier": "^3.1.0",
+    "husky": "^3.0.4",
+    "lint-staged": "^9.2.5",
+    "mocha": "^6.2.0",
+    "prettier": "^1.19.1",
+    "rimraf": "^3.0.0",
+    "typescript": "^3.6.2",
+    "typings-tester": "^0.3.2",
+    "webpack": "^4.39.3",
+    "webpack-cli": "^3.3.7"
+  }
+}

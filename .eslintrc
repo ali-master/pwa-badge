@@ -1,0 +1,23 @@
+{
+  "extends": [
+    "prettier",
+    "plugin:@typescript-eslint/recommended"
+  ],
+  "env": {
+    "node": true
+  },
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "impliedStrict": true
+    },
+    "ecmaVersion": 6,
+    "sourceType": "module"
+  },
+  "plugins": ["@typescript-eslint", "prettier"],
+  "rules": {
+    "padded-blocks": 0,
+    "no-use-before-define": [2, "nofunc"],
+    "no-unused-expressions": 2
+  }
+}

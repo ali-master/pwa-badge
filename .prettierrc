@@ -1,0 +1,6 @@
+{
+  "arrowParens": "always",
+  "proseWrap": "always",
+  "singleQuote": true,
+  "trailingComma": "all"
+}
