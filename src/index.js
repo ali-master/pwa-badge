@@ -51,7 +51,8 @@ class PWABadge {
    * @private
    * @memberof  PWABadge
    * @see       https://web.dev/badging-api/
-   * @returns   {Promise<void>} returns empty promises you can use for error handling
+   * @see       https://github.com/w3c/badging/blob/master/docs/implementation.md
+   * @returns   {Promise<void>} returns empty promise you can use for error handling
    */
   __innerSet(unreadCount) {
     if (this.__navigator.setBadge) {
@@ -60,6 +61,8 @@ class PWABadge {
       return this.__navigator.setExperimentalBadge(unreadCount);
     } else if (this.__window.ExperimentalBadge) {
       return this.__window.ExperimentalBadge.set(unreadCount);
+    } else if (this.__navigator.setClientBadge) {
+      return this.__navigator.setClientBadge(unreadCount);
     }
   }
 
@@ -76,7 +79,7 @@ class PWABadge {
    *
    * @memberof    PWABadge
    * @param       {number} unreadCount - Unread Badge count
-   * @returns     {void}   returns empty promises you can use for error handling
+   * @returns     {void}   returns empty promise you can use for error handling
    */
   syncSetBadge(unreadCount) {
     try {
@@ -99,9 +102,10 @@ class PWABadge {
    *
    * Setting number to `0` is the same as calling {@link syncClearBadge|this.syncClearBadge()}.
    *
+   * @async
    * @memberof    PWABadge
    * @param       {number} unreadCount - Unread Badge count
-   * @returns     {Promise<void>} returns empty promises you can use for error handling
+   * @returns     {Promise<void>} returns empty promise you can use for error handling
    */
   async asyncSetBadge(count) {
     return this.__innerSet(count);
@@ -113,7 +117,8 @@ class PWABadge {
    * @private
    * @memberof PWABadge
    * @see      https://web.dev/badging-api/
-   * @returns  {Promise<void>} returns empty promises you can use for error handling
+   * @see      https://github.com/w3c/badging/blob/master/docs/implementation.md
+   * @returns  {Promise<void>} returns empty promise you can use for error handling
    */
   __innerClear() {
     if (this.__navigator.clearBadge) {
@@ -122,6 +127,8 @@ class PWABadge {
       return this.__navigator.clearExperimentalBadge();
     } else if (this.__window.ExperimentalBadge) {
       return this.__window.ExperimentalBadge.clear();
+    } else if (this.__navigator.clearClientBadge) {
+      return this.__navigator.clearClientBadge();
     }
   }
 
@@ -129,7 +136,7 @@ class PWABadge {
    * Removes app's badge.
    *
    * @memberof PWABadge
-   * @returns  {void} returns empty promises you can use for error handling
+   * @returns  {void} returns empty promise you can use for error handling
    */
   syncClearBadge() {
     try {
@@ -144,8 +151,9 @@ class PWABadge {
   /**
    * Removes app's badge.
    *
+   * @async
    * @memberof PWABadge
-   * @returns  {Promise<void>} returns empty promises you can use for error handling
+   * @returns  {Promise<void>} returns empty promise you can use for error handling
    */
   async asyncClearBadge() {
     return this.__innerClear();
