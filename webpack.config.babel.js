@@ -1,5 +1,6 @@
 import path from 'path';
 import webpack from 'webpack';
+import TerserPlugin from 'terser-webpack-plugin';
 
 const { NODE_ENV } = process.env;
 export default {
@@ -10,6 +11,9 @@ export default {
   },
   optimization: {
     minimize: NODE_ENV === 'production',
+    minimizer: [new TerserPlugin({
+      extractComments: false,
+    })],
   },
   output: {
     path: path.join(__dirname, 'dist'),

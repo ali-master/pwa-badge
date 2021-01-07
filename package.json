@@ -72,6 +72,7 @@
     "mocha": "^6.2.0",
     "prettier": "^1.19.1",
     "rimraf": "^3.0.0",
+    "terser-webpack-plugin": "^5.0.3",
     "typescript": "^3.6.2",
     "typings-tester": "^0.3.2",
     "webpack": "^4.39.3",
