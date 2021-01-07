@@ -64,6 +64,8 @@ class PWABadge {
     } else if (this.__navigator.setClientBadge) {
       return this.__navigator.setClientBadge(unreadCount);
     }
+
+    return Promise.reject();
   }
 
   /**
@@ -130,6 +132,8 @@ class PWABadge {
     } else if (this.__navigator.clearClientBadge) {
       return this.__navigator.clearClientBadge();
     }
+
+    return Promise.reject();
   }
 
   /**
