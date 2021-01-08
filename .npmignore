@@ -1,0 +1,10 @@
+.DS_STORE
+*.log
+
+node_modules
+test
+
+coverage
+images
+coverage
+.github
