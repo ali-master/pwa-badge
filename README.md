@@ -1,6 +1,6 @@
 <div align="center">
 	<p align="center">
-		<img src="./images/image.png" style="border-radius: 25px;" border="0" />
+		<img src="https://github.com/ali-master/pwa-badge/raw/master/images/image.png" border="0" />
 	</p>
 	<h1 align="center">PWA Badge</h1>
 	<p align="center">The PWA Badge API allows installed web apps to set an application-wide badge on the app icon.</p>
@@ -94,7 +94,7 @@ Result by calling `syncSetBadge`:
 
 <div align="center">
 	<p align="center">
-		<img src="./images/demo.png" border="0" />
+		<img src="https://github.com/ali-master/pwa-badge/raw/master/images/demo.png" border="0" />
 	</p>
 </div>
 
