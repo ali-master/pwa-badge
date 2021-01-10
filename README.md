@@ -1,6 +1,6 @@
 <div align="center">
 	<p align="center">
-		<img src="./images/image.png" border="0" />
+		<img src="./images/image.png" style="border-radius: 25px;" border="0" />
 	</p>
 	<h1 align="center">PWA Badge</h1>
 	<p align="center">The PWA Badge API allows installed web apps to set an application-wide badge on the app icon.</p>
@@ -134,3 +134,12 @@ PWABadge.asyncClearBadge()
   make calls to the Badging API dependent on the installation state. Just call
   the API when it exists, as other browsers may show the badge in other places.
   If it works, it works. If not, it simply doesn't.
+
+## Wallaby.js
+
+[![Wallaby.js](https://img.shields.io/badge/wallaby.js-powered-blue.svg?style=for-the-badge&logo=github)](https://wallabyjs.com/oss/)
+
+This repository contributors are welcome to use
+[Wallaby.js OSS License](https://wallabyjs.com/oss/) to get test results
+immediately as you type, and see the results in your editor right next to your
+code.
