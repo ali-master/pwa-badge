@@ -1,6 +1,14 @@
 declare class PWABadge {
   private navigator: Navigator;
   private window: Window;
+
+  /**
+   * Check the Browser Badge feature supports
+   *
+   * @template Return true if the browser supports the Badge feature and returns false if not.
+   */
+  supports(): boolean;
+
   /**
    * Sets the PWA App's badge.
    *

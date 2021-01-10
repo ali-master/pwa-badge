@@ -46,6 +46,22 @@ class PWABadge {
   }
 
   /**
+   * Check the Browser Badge feature supports
+   *
+   * @memberof  PWABadge
+   * @return    {boolean} Return true if the browser supports the Badge feature and returns false if not.
+   */
+  supports() {
+    const n = ['setBadge', 'setExperimentalBadge', 'setClientBadge'];
+
+    for (const key of n) {
+      if (this.__navigator.hasOwnProperty(key)) return true;
+    }
+
+    return this.__window.hasOwnProperty('ExperimentalBadge');
+  }
+
+  /**
    * Wrapper to support first and second origin trial to compatible with the Browsers
    *
    * @private
@@ -59,10 +75,10 @@ class PWABadge {
       return this.__navigator.setBadge(unreadCount);
     } else if (this.__navigator.setExperimentalBadge) {
       return this.__navigator.setExperimentalBadge(unreadCount);
-    } else if (this.__window.ExperimentalBadge) {
-      return this.__window.ExperimentalBadge.set(unreadCount);
     } else if (this.__navigator.setClientBadge) {
       return this.__navigator.setClientBadge(unreadCount);
+    } else if (this.__window.ExperimentalBadge) {
+      return this.__window.ExperimentalBadge.set(unreadCount);
     }
 
     return Promise.reject();

@@ -1,6 +1,5 @@
-
 describe('PWA badge', () => {
-  it("Check supporting", () => {
+  it('Check supporting', () => {
     expect(true).toEqual(true);
-  })
+  });
 });
