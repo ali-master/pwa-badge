@@ -7,7 +7,7 @@ declare class PWABadge {
    *
    * @template Return true if the browser supports the Badge feature and returns false if not.
    */
-  supports(): boolean;
+  isSupported(): boolean;
 
   /**
    * Sets the PWA App's badge.

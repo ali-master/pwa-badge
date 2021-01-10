@@ -51,7 +51,7 @@ class PWABadge {
    * @memberof  PWABadge
    * @return    {boolean} Return true if the browser supports the Badge feature and returns false if not.
    */
-  supports() {
+  isSupported() {
     const n = ['setBadge', 'setExperimentalBadge', 'setClientBadge'];
 
     for (const key of n) {
