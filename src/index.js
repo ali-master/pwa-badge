@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
+
 /**
  * Badging for PWA app icons
  *
@@ -155,9 +157,7 @@ class PWABadge {
    * @returns  {void} returns empty promise you can use for error handling
    */
   syncClearBadge() {
-    try {
-      this.__innerClear();
-    } catch (e) {}
+    this.__innerClear();
   }
 
   /**
