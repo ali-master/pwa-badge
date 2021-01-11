@@ -42,7 +42,7 @@ declare class PWABadge {
   /**
    * Removes app's badge.
    */
-  syncClearBadge(unreadCount: number): void;
+  syncClearBadge(): void;
 
   /**
    * Removes app's badge.
