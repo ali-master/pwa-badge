@@ -101,9 +101,13 @@ class PWABadge {
    */
   syncSetBadge(unreadCount) {
     try {
-      this.__innerSet(unreadCount).catch((error) => {
-        throw error;
-      });
+      const result = this.__innerSet(unreadCount);
+
+      if (result && result.hasOwnProperty('catch')) {
+        result.catch((error) => {
+          throw error;
+        });
+      }
     } catch (e) {
       return e;
     }
@@ -143,10 +147,10 @@ class PWABadge {
       return this.__navigator.clearBadge();
     } else if (this.__navigator.clearExperimentalBadge) {
       return this.__navigator.clearExperimentalBadge();
-    } else if (this.__window.ExperimentalBadge) {
-      return this.__window.ExperimentalBadge.clear();
     } else if (this.__navigator.clearClientBadge) {
       return this.__navigator.clearClientBadge();
+    } else if (this.__window.ExperimentalBadge) {
+      return this.__window.ExperimentalBadge.clear();
     }
 
     return Promise.reject();
@@ -160,9 +164,12 @@ class PWABadge {
    */
   syncClearBadge() {
     try {
-      this.__innerClear().catch((error) => {
-        throw error;
-      });
+      const result = this.__innerClear();
+      if (result && result.hasOwnProperty('catch')) {
+        result.catch((error) => {
+          throw error;
+        });
+      }
     } catch (e) {
       return e;
     }
