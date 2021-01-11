@@ -28,6 +28,7 @@ describe('PWA Badge', () => {
       expect(Badge.isSupported()).toEqual(false);
       expect(Badge.syncSetBadge(10)).toBeUndefined();
       await expect(Badge.asyncSetBadge(10)).rejects.toBeUndefined();
+      await expect(Badge.asyncClearBadge()).rejects.toBeUndefined();
     });
     it('Should be true By using setBadge', () => {
       Object.defineProperty(navigator, 'setBadge', {

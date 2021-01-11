@@ -101,16 +101,8 @@ class PWABadge {
    */
   syncSetBadge(unreadCount) {
     try {
-      const result = this.__innerSet(unreadCount);
-
-      if (result && result.hasOwnProperty('catch')) {
-        result.catch((error) => {
-          throw error;
-        });
-      }
-    } catch (e) {
-      return e;
-    }
+      this.__innerSet(unreadCount);
+    } catch (e) {}
   }
 
   /**
@@ -164,15 +156,8 @@ class PWABadge {
    */
   syncClearBadge() {
     try {
-      const result = this.__innerClear();
-      if (result && result.hasOwnProperty('catch')) {
-        result.catch((error) => {
-          throw error;
-        });
-      }
-    } catch (e) {
-      return e;
-    }
+      this.__innerClear();
+    } catch (e) {}
   }
 
   /**
