@@ -35,14 +35,7 @@ Examples of sites that may use this Library includes:
 - Games, to signal that a player action is required (e.g., in Chess, when it is
   the player's turn).
 
-The App Badging API works on Windows, and macOS, in Chrome 81 or later. It has
-also been confirmed to work on Edge 84 or later. Support for Chrome OS is in
-development and will be available in a future release of Chrome. On Android, the
-Badging API is not supported. Instead, Android automatically shows a badge on
-app icon for the installed web app when there is an unread notification, just as
-for Android apps.
-
-### Install
+### Usage
 
 ```bash
 npm install --save pwa-badge
@@ -50,27 +43,33 @@ npm install --save pwa-badge
 
 ### The Badge API consists of five methods:
 
-- `supports()` Check if the User's browser supports the PWA Badging feature, and
-  returns a `boolean` value that represents the Status of supporting.
+- `isSupported()` Check if the User's browser supports the PWA Badging feature,
+  and returns a `boolean` value that represents the Status of supporting.
 - `syncSetBadge(unreadCount)` Removes app's badge **Synchronously**. If a value
   is provided, set the badge to the provided value otherwise, display a plain
   white dot (or other flag as appropriate to the platform). Setting number to 0
-  is the same as calling `syncClearBadge()`.
+  is the same as calling `syncClearBadge()` or `asyncClearBadge()`.
 - `syncClearBadge()` Removes app's badge **Synchronously**.
 - `asyncSetBadge(unreadCount)` This API is the same as `syncSetBadge()` but
   returns an empty `Promise` for error handling.
-- `asyncSetBadge()` Removes app's badge **Asynchronously** and returns an empty
-  `Promise` for error handling.
+- `asyncClearBadge()` Removes app's badge **Asynchronously** and returns an
+  empty `Promise` for error handling.
 
-### Check Browser supports
+### Check Browser supports the Badge API
+
+TL;DR `isSupported()` method function is an util for informing your users that
+this feature supports by their `Browser` or `OS` and the `pwa-badge` library
+`set` and `clear` the Badge count safely, and you can avoid using
+`isSupported()` before calling the `set` or `clear` methods.
 
 ```js
 import PWABadge from 'pwa-badge';
 
+// Create an Instance
 const badge = new PWABadge();
 
-if (PWABadge.isSupported()) {
-  // Supports the Badge feature
+if (badge.isSupported()) {
+  // Hoora!, Supports the Badge feature
 } else {
   // Does not supports
 }
@@ -81,13 +80,14 @@ if (PWABadge.isSupported()) {
 ```js
 import PWABadge from 'pwa-badge';
 
+// Create an Instance
 const badge = new PWABadge();
 
 // Set Badge unreadCount
-PWABadge.syncSetBadge(1);
+badge.syncSetBadge(1);
 
 // Clear Badge unreadCount
-PWABadge.syncClearBadge();
+badge.syncClearBadge();
 ```
 
 Result by calling `syncSetBadge`:
@@ -103,10 +103,12 @@ Result by calling `syncSetBadge`:
 ```js
 import PWABadge from 'pwa-badge';
 
+// Create an Instance
 const badge = new PWABadge();
 
 // Set Badge unreadCount
-PWABadge.asyncSetBadge(1)
+badge
+  .asyncSetBadge(1)
   .then(() => {
     // Badge count has shown as well
   })
@@ -115,7 +117,8 @@ PWABadge.asyncSetBadge(1)
   });
 
 // Clear Badge unreadCount
-PWABadge.asyncClearBadge()
+badge
+  .asyncClearBadge()
   .then(() => {
     // Badge count has disapread
   })
@@ -124,16 +127,23 @@ PWABadge.asyncClearBadge()
   });
 ```
 
-### Notes
+The App Badging API works on **Windows**, and **macOS**, in **Chrome 81 or
+later**. It has also been confirmed to work on **Edge 84** or later. Support for
+**Chrome OS** is in development and will be available in a future release of
+Chrome. On **Android**, the Badging API is not supported. Instead, Android
+automatically shows a badge on app icon for the installed web app when there is
+an unread notification, just as for Android apps.
 
-- Some user agents may take a number like `4000` and rewrite it as `99+`. If you
-  saturate the badge yourself (for example by setting it to `99`) then the `+`
-  won't appear. No matter the actual number, just call `syncSetBadge()` or
-  `asyncSetBadge()` and let the user agent deal with displaying it accordingly.
-- While the App Badging API in Chrome requires `an installed app`, you shouldn't
-  make calls to the Badging API dependent on the installation state. Just call
-  the API when it exists, as other browsers may show the badge in other places.
-  If it works, it works. If not, it simply doesn't.
+Some user agents may take a number like `4000` and rewrite it as `99+`. If you
+saturate the badge yourself (for example by setting it to `99`) then the `+`
+won't appear. No matter the actual number, just call `syncSetBadge()` or
+`asyncSetBadge()` and let the user agent deal with displaying it accordingly.
+
+While the App Badging API in Chrome requires an `installed app` as I wrote
+before, you shouldn't make calls to the Badging API dependent on the
+installation state. Just call the API when it `exists` and `installed` on a
+device, as other browsers may show the badge in other places. If it works, it
+works. If not, it simply doesn't.
 
 ## Wallaby.js
 
