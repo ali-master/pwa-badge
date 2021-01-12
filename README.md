@@ -6,10 +6,11 @@
 	<p align="center">The PWA Badge API allows installed web apps to set an application-wide badge on the app icon, like <b>Native Apps</b>.</p>
 
 [![Travis CI](https://travis-ci.com/ali-master/pwa-badge.svg?branch=master)](https://travis-ci.com/ali-master/pwa-badge)
+[![codecov](https://codecov.io/gh/ali-master/pwa-badge/branch/master/graph/badge.svg)](https://codecov.io/gh/ali-master/pwa-badge)
+[![CodeFactor](https://www.codefactor.io/repository/github/ali-master/pwa-badge/badge)](https://www.codefactor.io/repository/github/ali-master/pwa-badge)
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/ali-master/pwa-badge/blob/master/LICENSE)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-orange.svg)](https://github.com/ali-master/pwa-badge/compare)
 [![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg)](#contributors-)
-
 </div>
 <hr />
 
