@@ -95,7 +95,7 @@ class PWABadge {
    * If you saturate the badge yourself (for example by setting it to "99") then the "+" won't appear.
    * No matter the actual number, just call setAppBadge(unreadCount) and let the user agent deal with displaying it accordingly.
    *
-   * Setting number to `0` is the same as calling {@link syncClearBadge|this.syncClearBadge()}.
+   * Setting number to `0` is the same as calling {@link syncClearBadge|this.syncClearBadge()} or {@link syncClearBadge|this.asyncClearBadge()}.
    *
    * @memberof    PWABadge
    * @param       {number} unreadCount - Unread Badge count
@@ -116,7 +116,7 @@ class PWABadge {
    * If you saturate the badge yourself (for example by setting it to "99") then the "+" won't appear.
    * No matter the actual number, just call setAppBadge(unreadCount) and let the user agent deal with displaying it accordingly.
    *
-   * Setting number to `0` is the same as calling {@link syncClearBadge|this.syncClearBadge()}.
+   * Setting number to `0` is the same as calling {@link syncClearBadge|this.syncClearBadge()} or {@link syncClearBadge|this.asyncClearBadge()}.
    *
    * @async
    * @memberof    PWABadge

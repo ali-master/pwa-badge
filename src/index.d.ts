@@ -1,11 +1,9 @@
 declare class PWABadge {
-  private navigator: Navigator;
-  private window: Window;
+  private readonly navigator: Navigator;
+  private readonly window: Window;
 
   /**
    * Check the Browser Badge feature supports
-   *
-   * @template Return true if the browser supports the Badge feature and returns false if not.
    */
   isSupported(): boolean;
 
@@ -18,7 +16,7 @@ declare class PWABadge {
    * If you saturate the badge yourself (for example by setting it to "99") then the "+" won't appear.
    * No matter the actual number, just call setAppBadge(unreadCount) and let the user agent deal with displaying it accordingly.
    *
-   * Setting number to `0` is the same as calling {@link syncClearBadge|this.syncClearBadge()}.
+   * Setting number to `0` is the same as calling {@link syncClearBadge|this.syncClearBadge()} or {@link syncClearBadge|this.asyncClearBadge()}.
    *
    * @template Unread Badge count
    */
@@ -33,7 +31,7 @@ declare class PWABadge {
    * If you saturate the badge yourself (for example by setting it to "99") then the "+" won't appear.
    * No matter the actual number, just call setAppBadge(unreadCount) and let the user agent deal with displaying it accordingly.
    *
-   * Setting number to `0` is the same as calling {@link syncClearBadge|this.syncClearBadge()}.
+   * Setting number to `0` is the same as calling {@link syncClearBadge|this.syncClearBadge()} or {@link syncClearBadge|this.asyncClearBadge()}.
    *
    * @template Unread Badge count
    */
