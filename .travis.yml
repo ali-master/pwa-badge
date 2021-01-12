@@ -5,6 +5,8 @@ node_js:
 
 cache: npm
 
+before_script:
+  - npm i -g codecov
 script:
   - npm i --ignore-scripts
   - npm run clean
