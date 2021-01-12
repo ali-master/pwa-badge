@@ -6,7 +6,8 @@ node_js:
 cache: npm
 
 script:
-  - npm i
+  - npm i --ignore-scripts
+  - npm run clean
   - npm run test
   - npm run lint
   - npm run build
