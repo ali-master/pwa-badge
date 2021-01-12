@@ -2,7 +2,7 @@
 	<p align="center">
 		<img src="https://raw.githubusercontent.com/ali-master/pwa-badge/master/images/image.png" border="0" />
 	</p>
-	<h1 align="center">PWA Badge<sub style="font-size: 12px">Like Native Apps</sub></h1>
+	<h1 align="center">PWA Badge</h1>
 	<p align="center">The PWA Badge API allows installed web apps to set an application-wide badge on the app icon, like <b>Native Apps</b>.</p>
 
 [![Travis CI](https://travis-ci.com/ali-master/pwa-badge.svg?branch=master)](https://travis-ci.com/ali-master/pwa-badge)
