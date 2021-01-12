@@ -3,7 +3,7 @@
 		<img src="https://raw.githubusercontent.com/ali-master/pwa-badge/master/images/image.png" border="0" />
 	</p>
 	<h1 align="center">PWA Badge</h1>
-	<p align="center">The PWA Badge API allows installed web apps to set an application-wide badge on the app icon, like <b>Native Apps</b>.</p>
+	<p align="center">Like <b>Native Apps</b>, The PWA Badge API allows installed web apps to set an application-wide badge on the app icon.</p>
 
 [![Travis CI](https://travis-ci.com/ali-master/pwa-badge.svg?branch=master)](https://travis-ci.com/ali-master/pwa-badge)
 [![codecov](https://codecov.io/gh/ali-master/pwa-badge/branch/master/graph/badge.svg)](https://codecov.io/gh/ali-master/pwa-badge)
@@ -14,7 +14,7 @@
 </div>
 <hr />
 
-The App Badging API allows installed web apps to set an application-wide badge,
+The App Badge API allows installed web apps to set an application-wide badge,
 shown in an operating-system-specific place associated with the application
 (such as the shelf or home screen).
 
@@ -22,8 +22,7 @@ Badges tend to be more user-friendly than notifications and can be updated with
 a much higher frequency since they don't interrupt the user. And, because they
 don't interrupt the user, they don't need the user's permission.
 
-> Keep in mind that for using this library, Your PWA application should be
-> installed before on your `OS` or `Mobile`.
+> Keep in mind that to display the Badge count, Your **PWA** application should be installed on your Device.
 
 ### Possible use cases
 
@@ -44,7 +43,7 @@ npm install --save pwa-badge
 
 ### The Badge API consists of five methods:
 
-- `isSupported()` Check if the User's browser supports the PWA Badging feature,
+- `isSupported()` Check if the User's browser supports the Feature,
   and returns a `boolean` value that represents the Status of supporting.
 - `syncSetBadge(unreadCount)` Removes app's badge **Synchronously**. If a value
   is provided, set the badge to the provided value otherwise, display a plain
@@ -101,7 +100,7 @@ Result by calling `syncSetBadge`:
 
 ### `Async` Set and Clear Badge
 
-`asyncSetBadge()` and `asyncClearBadge()`, Both return empty `promises` you can
+`asyncSetBadge()` and `asyncClearBadge()` return empty `promises` you can
 use for error handling.
 
 ```js
@@ -131,10 +130,10 @@ badge
   });
 ```
 
-The App Badging API works on **Windows**, and **macOS**, in **Chrome 81 or
+The App Badge API works on **Windows**, and **macOS**, in **Chrome 81 or
 later**. It has also been confirmed to work on **Edge 84** or later. Support for
 **Chrome OS** is in development and will be available in a future release of
-Chrome. On **Android**, the Badging API is not supported. Instead, Android
+Chrome. On **Android**, the Badge API is not supported. Instead, Android
 automatically shows a badge on app icon for the installed web app when there is
 an unread notification, just as for Android apps.
 
@@ -143,8 +142,8 @@ saturate the badge yourself (for example by setting it to `99`) then the `+`
 won't appear. No matter the actual number, just call `syncSetBadge()` or
 `asyncSetBadge()` and let the user agent deal with displaying it accordingly.
 
-While the App Badging API in Chrome requires an `installed app` as I wrote
-before, you shouldn't make calls to the Badging API dependent on the
+While the App Badge API in Chrome requires an `installed app` as I wrote
+before, you shouldn't make calls to the Badge API dependent on the
 installation state. Just call the API when it `exists` and `installed` on a
 device, as other browsers may show the badge in other places. If it works, it
 works. If not, it simply doesn't.
