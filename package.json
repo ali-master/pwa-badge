@@ -29,13 +29,13 @@
     "lint": "eslint src test && prettier --write ./src ./test",
     "test": "cross-env BABEL_ENV=commonjs jest",
     "build": "npm run build:commonjs && npm run build:umd && npm run build:umd:min && npm run build:es",
-    "release": "npm run build",
+    "release": "npm run clean && npm run build && npm run changelog",
     "build:commonjs": "cross-env BABEL_ENV=commonjs babel src --out-dir lib",
     "build:es": "cross-env BABEL_ENV=es babel src --out-dir es",
     "build:umd": "cross-env BABEL_ENV=commonjs NODE_ENV=development npx webpack",
     "build:umd:min": "cross-env BABEL_ENV=commonjs NODE_ENV=production npx webpack --mode production",
     "prerelease": "npm run test",
-    "postrelease": "standard-version"
+    "changelog": "standard-version"
   },
   "husky": {
     "hooks": {
@@ -46,12 +46,10 @@
   "lint-staged": {
     "*.{js,ts}": [
       "eslint --fix",
-      "prettier --write",
-      "git add"
+      "prettier --write"
     ],
     "*.{json,md}": [
-      "prettier --write",
-      "git add"
+      "prettier --write"
     ]
   },
   "devDependencies": {
