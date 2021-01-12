@@ -12,6 +12,6 @@ script:
   - npm run clean
   - npm run test
   - npm run lint
-  - npm run build:ci
+  - npm run build
 after_success:
   - codecov

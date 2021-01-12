@@ -28,13 +28,13 @@
     "prepare": "npm run clean && npm run lint && npm run test && npm run build",
     "lint": "eslint src test && prettier --write ./src ./test",
     "test": "cross-env BABEL_ENV=commonjs jest",
-    "build:ci": "npm run build:commonjs && npm run build:umd && npm run build:umd:min && npm run build:es",
     "build": "npm run build:commonjs && npm run build:umd && npm run build:umd:min && npm run build:es",
+    "release": "npm run build",
     "build:commonjs": "cross-env BABEL_ENV=commonjs babel src --out-dir lib",
     "build:es": "cross-env BABEL_ENV=es babel src --out-dir es",
     "build:umd": "cross-env BABEL_ENV=commonjs NODE_ENV=development npx webpack",
     "build:umd:min": "cross-env BABEL_ENV=commonjs NODE_ENV=production npx webpack --mode production",
-    "postbuild": "standard-version"
+    "postrelease": "standard-version"
   },
   "husky": {
     "hooks": {
